@@ -1,1 +1,1 @@
-Landing Page buat [Disini](rikarani.github.io)
+Landing Page buat [Disini](https://rikarani.github.io/)
