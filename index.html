@@ -1,19 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="font-tulisan">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phasya Ananta</title>
+    <title>It's Me</title>
+
+    <!-- Favico -->
+    <!-- Favico -->
 
     <!-- Link CSS -->
     <!-- <link rel="stylesheet" href="src/css/style.css" /> -->
     <link rel="stylesheet" href="dist/css/final.css" />
+    <link rel="stylesheet" href="dist/css/hamburgers.css" />
     <!-- Link CSS -->
   </head>
-  <body>
-    <h1 class="text-center text-6xl font-bold text-cyan-400">Hello World</h1>
+  <body class="bg-slate-900">
+    <!-- Header Start -->
+    <section id="header">
+      <header class="batas container box-border flex max-w-4xl items-center justify-between p-4 sm:mx-auto">
+        <!-- Logo Website -->
+        <div class="logo">
+          <h1 class="p-4 text-xl font-semibold text-primary">Phasya Ananta</h1>
+        </div>
+        <!-- Logo Website -->
 
-    <h2 class="mt-4 text-center text-3xl font-semibold text-orange-400">Ini Adalah Landing Page</h2>
+        <!-- Menu -->
+        <div>
+          <!-- Hamburger Menu pas layar kecil -->
+          <div class="sm-wrapper sm:hidden">
+            <!-- Hamburger Menu -->
+            <button id="hamburger-toggle" class="hamburger hamburger--spin relative z-10" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner bg-primary before:bg-primary after:bg-primary"></span>
+              </span>
+            </button>
+            <!-- Hamburger Menu -->
+
+            <!-- Fullscreen Navbar di Mobile -->
+            <div id="nav-wrapper" class="hidden">
+              <nav class="fixed top-0 left-0 bottom-0 right-0 bg-black/90 sm:block">
+                <ul class="flex h-full flex-col items-center justify-center gap-3">
+                  <li>
+                    <a href="" class="text-xl font-semibold text-primary hover:text-teal-300">Introduction</a>
+                  </li>
+                  <li>
+                    <a href="" class="text-xl font-semibold text-primary hover:text-teal-300">Projects</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- Fullscreen Navbar di Mobile -->
+          </div>
+          <!-- Hamburger Menu pas layar kecil -->
+
+          <!-- Navbar yang muncul pas layar gede -->
+          <nav class="hidden p-4 text-lg font-semibold text-primary sm:block">
+            <ul class="flex gap-6">
+              <li>
+                <a href="" class="hover:text-teal-300">Home</a>
+              </li>
+              <li>
+                <a href="" class="hover:text-teal-300">Introduction</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Navbar yang muncul pas layar gede -->
+        </div>
+        <!-- Menu -->
+      </header>
+    </section>
+    <!-- Header End-->
+
+    <script src="dist/js/script.js" type="module"></script>
   </body>
 </html>
