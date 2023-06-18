@@ -1,5 +1,21 @@
-function App() {
-  return <h1 className="font-medium text-9xl text-center text-cyan-400">Hello World</h1>;
+import React, { useState } from "react";
+import { LoaderContext } from "./context/context";
+import Loader from "./components/Loader";
+import Locker from "./components/Locker";
+import Home from "./components/Home";
+
+function App(): React.JSX.Element {
+  const [open, setOpen] = useState<boolean>(true);
+
+  return (
+    <>
+      <LoaderContext.Provider value={{ open, setOpen }}>
+        <Loader />
+        <Locker />
+        <Home />
+      </LoaderContext.Provider>
+    </>
+  );
 }
 
 export default App;
