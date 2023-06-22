@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useContext } from "react";
-import { LoaderContext } from "../context/context";
+import { LoadingContext } from "../context/context";
 
 function Loader(): React.JSX.Element {
-  const { open, setOpen } = useContext(LoaderContext);
+  const { open, setOpen } = useContext(LoadingContext);
   const bgRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -42,9 +42,9 @@ function Loader(): React.JSX.Element {
   }, [open]);
 
   return (
-    <div ref={bgRef} className="fixed bottom-0 left-0 right-0 top-0 grid place-items-center bg-slate-950 px-4">
+    <div ref={bgRef} className="fixed bottom-0 left-0 right-0 top-0 grid place-items-center bg-slate-950 px-4 font-tulisan">
       <div>
-        <h1 className="text-justify text-6xl font-semibold text-gray-50">Sit Tight</h1>
+        <h1 className="mb-1.5 text-justify text-6xl font-semibold text-gray-50">Sit Tight</h1>
         <h2 className="text-4xl text-gray-50">While I'm Prepare Everything For You</h2>
         <p ref={textRef} className="mt-1.5 text-gray-50">
           0%
