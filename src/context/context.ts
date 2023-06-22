@@ -1,11 +1,11 @@
 import React, { createContext, SetStateAction } from "react";
 
-interface LoaderContextInterface {
+interface LoadingContextInterface {
   open: boolean;
   setOpen: React.Dispatch<SetStateAction<boolean>>;
 }
 
-export const LoaderContext = createContext<LoaderContextInterface>({
+export const LoadingContext = createContext<LoadingContextInterface>({
   open: true,
   setOpen: () => {},
 });
