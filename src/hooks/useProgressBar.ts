@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-function useProgressBar(initialOpen: boolean): number {
-  const [progress, setProgress] = useState(0);
+export function useProgressBar(initialOpen: boolean): number {
+  const [progress, setProgress] = useState<number>(0);
   const intervalIdRef = useRef<number | undefined>();
 
   useEffect(() => {
@@ -33,5 +33,3 @@ function useProgressBar(initialOpen: boolean): number {
 
   return progress;
 }
-
-export { useProgressBar };
