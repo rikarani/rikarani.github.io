@@ -1,10 +1,10 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "usehooks-ts";
 
-function Locker(): React.JSX.Element {
-  const sm: boolean = useMediaQuery({ minWidth: 640 });
+function Lockscreen(): React.JSX.Element {
+  const desktop: boolean = useMediaQuery("(min-width: 429px)");
 
-  return <h1 className="text-center text-4xl font-semibold text-cyan-500">Selamat! Anda Membuka Website Ini Menggunakan {sm ? "Bukan HP" : "HP"}</h1>;
+  return <h1 className="text-center text-4xl font-semibold text-cyan-500">Selamat! Anda Membuka Website Ini Menggunakan {desktop ? "Desktop" : "HP"}</h1>;
 }
 
-export default Locker;
+export default Lockscreen;
