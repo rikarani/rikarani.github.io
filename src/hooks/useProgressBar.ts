@@ -12,7 +12,7 @@ function useProgressBar(initialOpen: boolean): number {
         if (width >= 100) {
           clearInterval(intervalIdRef.current);
         } else {
-          width += Math.floor(Math.random() * 5 + 1);
+          width += Math.floor(Math.random() * 5 + 1) + 5;
           setProgress(width);
         }
       }, 350);
