@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-function useProgressBar(initialOpen: boolean): number {
-  const [progress, setProgress] = useState(0);
+export function useProgressBar(initialOpen: boolean): number {
+  const [progress, setProgress] = useState<number>(0);
   const intervalIdRef = useRef<number | undefined>();
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function useProgressBar(initialOpen: boolean): number {
         if (width >= 100) {
           clearInterval(intervalIdRef.current);
         } else {
-          width += Math.floor(Math.random() * 5 + 1);
+          width += Math.floor(Math.random() * 5 + 1) + 5;
           setProgress(width);
         }
       }, 350);
@@ -33,5 +33,3 @@ function useProgressBar(initialOpen: boolean): number {
 
   return progress;
 }
-
-export { useProgressBar };
