@@ -4,12 +4,12 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 import { useProgressBar } from "../hooks/useProgressBar";
-import { LoadingContext } from "../context/context";
+import { LoadingContext } from "../context/LoadingContext";
 import { nightSky } from "../config/nightSky";
 
 function Loading(): React.JSX.Element {
-  const { open, setOpen } = useContext(LoadingContext);
-  const progress = useProgressBar(open);
+  const { loading, setLoading } = useContext(LoadingContext);
+  const progress = useProgressBar(loading);
 
   const particleInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
@@ -17,7 +17,7 @@ function Loading(): React.JSX.Element {
 
   useEffect(() => {
     if (progress >= 100) {
-      setOpen(false);
+      setLoading(false);
     }
   }, [progress]);
 
