@@ -6,7 +6,7 @@ interface Time {
   detik: number;
 }
 
-export function useClock(): Time {
+export function useTime(): Time {
   const [time, setTime] = useState<Time>({
     jam: new Date().getHours(),
     menit: new Date().getMinutes(),
