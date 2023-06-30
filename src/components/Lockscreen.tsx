@@ -4,7 +4,7 @@ import Konten from "./partials/Lockscreen/Konten";
 import LazyImage from "./partials/Lockscreen/LazyImage";
 
 function Lockscreen(): React.JSX.Element {
-  const [ready, setReady] = useState<boolean>(true);
+  const [ready, setReady] = useState<boolean>(false);
 
   return (
     <div className="relative h-full w-full overflow-hidden">
