@@ -12,6 +12,14 @@ export default {
         hp: "url('../../img/miyako.webp')",
         desktop: "url('../../img/towa.webp')",
       },
+      colors: {
+        primary: "#181717", // github
+        fesbuk: "#1877F2",
+        ig: "#E4405F",
+        discord: "#5865F2",
+        wasap: "#25D366",
+        linkedin: "#0A66C2",
+      },
     },
   },
   plugins: [],
