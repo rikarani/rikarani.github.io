@@ -1,10 +1,20 @@
-import React from "react";
-import { useMediaQuery } from "usehooks-ts";
+import React, { useState } from "react";
+
+import Konten from "./partials/Lockscreen/Konten";
+import LazyImage from "./partials/Lockscreen/LazyImage";
 
 function Lockscreen(): React.JSX.Element {
-  const desktop: boolean = useMediaQuery("(min-width: 429px)");
+  const [ready, setReady] = useState<boolean>(false);
 
-  return <h1 className="text-center text-4xl font-semibold text-cyan-500">Selamat! Anda Membuka Website Ini Menggunakan {desktop ? "Desktop" : "HP"}</h1>;
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+      {/* background image */}
+      <LazyImage setReady={setReady} />
+      {/* background image */}
+
+      {ready && <Konten />}
+    </div>
+  );
 }
 
 export default Lockscreen;
