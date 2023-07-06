@@ -9,7 +9,7 @@ export default {
         tulisan: ["Nunito Sans", "Raleway", ...fontFamily.sans],
       },
       backgroundImage: {
-        hp: "url('../../img/miyako.webp')",
+        hp: "url('../../img/mashiro.webp')",
         desktop: "url('../../img/towa.webp')",
       },
       colors: {
