@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { LoadingContext } from "./context/LoadingContext";
 // import { useTransition, animated } from "@react-spring/web";
 
@@ -8,6 +8,7 @@ import Lockscreen from "./components/Lockscreen";
 
 function App(): React.JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
+  const [lock] = useState<boolean>(true);
 
   // const transition = useTransition(loading, {
   //   from: { opacity: 0 },
@@ -30,7 +31,7 @@ function App(): React.JSX.Element {
           Mount
         </button>
       </div> */}
-      <Lockscreen />
+      {lock && <Lockscreen />}
     </LoadingContext.Provider>
   );
 }
