@@ -16,7 +16,7 @@ function LazyImage({ setReady }: LazyImageProps): React.JSX.Element {
     }
   }, [src]);
 
-  return <div className="relative h-full w-full bg-hp bg-cover bg-top before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black/30 before:content-[''] sm:bg-desktop sm:bg-center"></div>;
+  return <div className="relative h-full w-full bg-hp bg-cover bg-center before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black/30 before:content-[''] sm:bg-desktop sm:bg-center"></div>;
 }
 
 export default LazyImage;
