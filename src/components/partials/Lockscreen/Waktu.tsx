@@ -14,9 +14,9 @@ function Waktu(): React.JSX.Element {
 
   return (
     <>
-      <div className="text-5xl font-medium sm:flex sm:gap-2.5 sm:font-normal sm:text-gray-200">
+      <div className="text-5xl font-medium sm:-ml-2 sm:flex sm:gap-2.5 sm:font-normal sm:text-gray-200">
         <p className="sm:text-7xl">{addZero(jam)}</p>
-        {sm ? <p className="-mt-2 text-7xl">:</p> : ""}
+        {sm ? <p className="-mt-1.5 text-7xl">:</p> : ""}
         <p className="sm:text-7xl">{addZero(menit)}</p>
       </div>
       <p className="text-lg font-medium sm:font-normal sm:text-gray-200">
