@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Konten from "./partials/Lockscreen/Konten";
 import LazyImage from "./partials/Lockscreen/LazyImage";
