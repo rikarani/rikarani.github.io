@@ -1,7 +1,6 @@
 import { useTime } from "../../../hooks/useTime";
 import { useDate } from "../../../hooks/useDate";
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import "animate.css/animate.min.css";
 import { useMediaQuery } from "usehooks-ts";
 
 function addZero(time: number): string {
