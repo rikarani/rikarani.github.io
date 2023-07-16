@@ -13,7 +13,7 @@ function App(): React.JSX.Element {
   const lockscreenTransition = useTransition(lock, {
     from: { opacity: 0 },
     enter: { opacity: 1, width: "100%", height: "100%", duration: 1000 },
-    leave: { opacity: 0, delay: 400, duration: 1000 },
+    leave: { opacity: 0, delay: 200, duration: 1000 },
     config: {
       easing: easings.easeInOutCubic,
     },
