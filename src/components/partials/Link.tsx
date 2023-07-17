@@ -1,4 +1,4 @@
-import { ReactNode, forwardRef } from "react";
+import { ReactNode } from "react";
 
 interface LinkProps {
   to: string;
@@ -6,12 +6,12 @@ interface LinkProps {
   openInNewTab?: boolean;
 }
 
-const Link = forwardRef<HTMLAnchorElement, LinkProps>(({ to, children, openInNewTab = true }, ref) => {
+function Link({ to, children, openInNewTab = true }: LinkProps): React.JSX.Element {
   return (
-    <a href={to} ref={ref} target={openInNewTab ? "_blank" : "_self"} onClick={(e) => e.stopPropagation()}>
+    <a href={to} target={openInNewTab ? "_blank" : "_self"} onClick={(e) => e.stopPropagation()}>
       {children}
     </a>
   );
-});
+}
 
 export default Link;

@@ -1,37 +1,37 @@
 import { useState } from "react";
 import { LoadingContext } from "./context/LoadingContext";
-// import { useTransition, animated } from "@react-spring/web";
+import { LockscreenContext } from "./context/LockscreenContext";
+import { useTransition, animated, easings } from "@react-spring/web";
 
-// import Loading from "./components/Loading";
 import Lockscreen from "./components/Lockscreen";
 // import Home from "./components/Home";
 
 function App(): React.JSX.Element {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [lock] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [lock, setLock] = useState<boolean>(true);
 
-  // const transition = useTransition(loading, {
-  //   from: { opacity: 0 },
-  //   enter: { opacity: 1 },
-  //   leave: { opacity: 0, delay: 500 },
-  // });
+  const lockscreenTransition = useTransition(lock, {
+    from: { opacity: 0 },
+    enter: { opacity: 1, width: "100%", height: "100%", duration: 1000 },
+    leave: { opacity: 0, delay: 200, duration: 1000 },
+    config: {
+      easing: easings.easeInOutCubic,
+    },
+  });
 
   return (
     <LoadingContext.Provider value={{ loading, setLoading }}>
-      {/* {transition(
-        (style, item) =>
-          item && (
-            <animated.div style={style}>
-              <Loading />
-            </animated.div>
-          )
-      )}
-      <div className="flex justify-center py-4">
-        <button onClick={() => setLoading((prev) => !prev)} className="rounded-3xl bg-cyan-400 px-4 py-2 text-lg hover:bg-cyan-600 hover:text-gray-100">
-          Mount
-        </button>
-      </div> */}
-      {lock && <Lockscreen />}
+      <LockscreenContext.Provider value={{ lock, setLock }}>
+        {lockscreenTransition((style, item) => {
+          return (
+            item && (
+              <animated.div style={style}>
+                <Lockscreen />
+              </animated.div>
+            )
+          );
+        })}
+      </LockscreenContext.Provider>
     </LoadingContext.Provider>
   );
 }

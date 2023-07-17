@@ -1,8 +1,8 @@
-import React, { createContext, SetStateAction } from "react";
+import { createContext, SetStateAction, Dispatch } from "react";
 
 interface LoadingContextInterface {
   loading: boolean;
-  setLoading: React.Dispatch<SetStateAction<boolean>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export const LoadingContext = createContext<LoadingContextInterface>({
