@@ -24,7 +24,7 @@ function Konten(): React.JSX.Element {
 
   return (
     quotes && (
-      <div onClick={() => setLock(false)} className="absolute left-0 top-0 h-full  px-4 pt-4">
+      <div onClick={() => setLock(false)} className="absolute bottom-0 left-0 right-0 top-0 px-4 pt-4">
         <div className="sm:flex sm:h-full sm:max-w-2xl sm:flex-col sm:justify-end">
           <div className="sm:-translate-y-7">
             <Waktu />
