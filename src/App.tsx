@@ -4,7 +4,7 @@ import { LockscreenContext } from "./context/LockscreenContext";
 import { useTransition, animated, easings } from "@react-spring/web";
 
 import Lockscreen from "./components/Lockscreen";
-// import Home from "./components/Home";
+import Home from "./components/Home";
 
 function App(): React.JSX.Element {
   const [loading, setLoading] = useState<boolean>(true);
@@ -12,8 +12,17 @@ function App(): React.JSX.Element {
 
   const lockscreenTransition = useTransition(lock, {
     from: { opacity: 0 },
-    enter: { opacity: 1, width: "100%", height: "100%", duration: 1000 },
+    enter: { opacity: 1, position: "fixed", top: 0, left: 0, bottom: 0, right: 0, duration: 1000 },
     leave: { opacity: 0, delay: 200, duration: 1000 },
+    config: {
+      easing: easings.easeInOutCubic,
+    },
+  });
+
+  const homeTransition = useTransition(lock, {
+    from: { opacity: 0 },
+    enter: { opacity: 1, delay: 400, duration: 700 },
+    leave: { opacity: 0 },
     config: {
       easing: easings.easeInOutCubic,
     },
@@ -27,6 +36,15 @@ function App(): React.JSX.Element {
             item && (
               <animated.div style={style}>
                 <Lockscreen />
+              </animated.div>
+            )
+          );
+        })}
+        {homeTransition((style, item) => {
+          return (
+            !item && (
+              <animated.div style={style}>
+                <Home />
               </animated.div>
             )
           );
