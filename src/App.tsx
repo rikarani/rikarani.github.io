@@ -4,7 +4,7 @@ import { LockscreenContext } from "./context/LockscreenContext";
 import { useTransition, animated, easings } from "@react-spring/web";
 
 import Lockscreen from "./components/Lockscreen";
-import Home from "./components/Home";
+import Main from "./components/Main";
 
 function App(): React.JSX.Element {
   const [loading, setLoading] = useState<boolean>(true);
@@ -44,7 +44,7 @@ function App(): React.JSX.Element {
           return (
             !item && (
               <animated.div style={style}>
-                <Home />
+                <Main />
               </animated.div>
             )
           );
