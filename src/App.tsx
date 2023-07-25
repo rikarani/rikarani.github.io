@@ -3,8 +3,8 @@ import { LoadingContext } from "./context/LoadingContext";
 import { LockscreenContext } from "./context/LockscreenContext";
 import { useTransition, animated, easings } from "@react-spring/web";
 
-import Lockscreen from "./components/Lockscreen";
-import Main from "./components/Main";
+import Lockscreen from "./views/Lockscreen";
+import Main from "./views/Main";
 
 function App(): React.JSX.Element {
   const [loading, setLoading] = useState<boolean>(true);
@@ -14,15 +14,6 @@ function App(): React.JSX.Element {
     from: { opacity: 0 },
     enter: { opacity: 1, position: "fixed", inset: 0, delay: 300, duration: 700 },
     leave: { opacity: 0, delay: 200, duration: 1000 },
-    config: {
-      easing: easings.easeInOutCubic,
-    },
-  });
-
-  const homeTransition = useTransition(lock, {
-    from: { opacity: 0 },
-    enter: { opacity: 1, delay: 400, duration: 700 },
-    leave: { opacity: 0 },
     config: {
       easing: easings.easeInOutCubic,
     },
@@ -40,15 +31,7 @@ function App(): React.JSX.Element {
             )
           );
         })}
-        {homeTransition((style, item) => {
-          return (
-            !item && (
-              <animated.div style={style}>
-                <Main />
-              </animated.div>
-            )
-          );
-        })}
+        {!lock && <Main />}
       </LockscreenContext.Provider>
     </LoadingContext.Provider>
   );
