@@ -1,27 +1,24 @@
 import { useTime } from "../../../hooks/useTime";
 import { useDate } from "../../../hooks/useDate";
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import { useMediaQuery } from "usehooks-ts";
 
 function addZero(time: number): string {
   return time <= 9 ? `0${time}` : `${time}`;
 }
 
 function Waktu(): React.JSX.Element {
-  const sm: boolean = useMediaQuery("(min-width: 640px)");
-
   const { jam, menit } = useTime();
   const { hari, tanggal, bulan, tahun } = useDate();
 
   return (
     <>
-      <AnimationOnScroll animateIn="animate__fadeInDown" delay={100} duration={0.7} offset={0} className="text-5xl font-light text-gray-200 sm:-ml-1 sm:flex sm:gap-2.5">
-        <p className="sm:text-7xl">{addZero(jam)}</p>
-        {sm ? <p className="-mt-1.5 text-7xl">:</p> : ""}
-        <p className="sm:text-7xl">{addZero(menit)}</p>
+      <AnimationOnScroll animateIn="animate__fadeInDown" delay={100} duration={0.7} offset={0}>
+        <p className="text-5xl font-light text-gray-200 sm:text-7xl">
+          {addZero(jam)} : {addZero(menit)}
+        </p>
       </AnimationOnScroll>
-      <AnimationOnScroll animateIn="animate__fadeInUp" delay={350} duration={0.7} offset={0} className="text-lg font-normal text-gray-200">
-        <p>
+      <AnimationOnScroll animateIn="animate__fadeInUp" delay={350} duration={0.7} offset={0}>
+        <p className="text-lg font-normal tracking-wider text-gray-200 sm:text-2xl sm:tracking-widest">
           {hari} {tanggal} {bulan} {tahun}
         </p>
       </AnimationOnScroll>
