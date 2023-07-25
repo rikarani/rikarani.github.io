@@ -6,11 +6,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        tulisan: ["Nunito Sans", "Raleway", ...fontFamily.sans],
+        tulisan: ["'Heebo'", ...fontFamily.sans],
       },
       backgroundImage: {
         hp: "url('../../img/mashiro.webp')",
-        desktop: "url('../../img/towa.webp')",
+        desktop: "url('../../img/nangid.webp')",
       },
       colors: {
         primary: "#181717", // github
