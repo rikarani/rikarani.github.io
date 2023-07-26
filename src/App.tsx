@@ -19,6 +19,15 @@ function App(): React.JSX.Element {
     },
   });
 
+  const homeTransition = useTransition(lock, {
+    from: { opacity: 0 },
+    enter: { opacity: 1, delay: 400, duration: 700 },
+    leave: { opacity: 0 },
+    config: {
+      easing: easings.easeInOutCubic,
+    },
+  });
+
   return (
     <LoadingContext.Provider value={{ loading, setLoading }}>
       <LockscreenContext.Provider value={{ lock, setLock }}>
@@ -31,7 +40,15 @@ function App(): React.JSX.Element {
             )
           );
         })}
-        {!lock && <Main />}
+        {homeTransition((style, item) => {
+          return (
+            !item && (
+              <animated.div style={style}>
+                <Main />
+              </animated.div>
+            )
+          );
+        })}
       </LockscreenContext.Provider>
     </LoadingContext.Provider>
   );
