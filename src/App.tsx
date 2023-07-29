@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { LoadingContext } from "./context/LoadingContext";
-import { LockscreenContext } from "./context/LockscreenContext";
+import { LoadingContext, LockscreenContext } from "./context";
 import { useTransition, animated, easings } from "@react-spring/web";
 
 import Lockscreen from "./views/Lockscreen";
