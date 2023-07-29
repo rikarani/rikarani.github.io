@@ -1,7 +1,7 @@
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import { Facebook, Github, Instagram } from "../Logo";
+import { Facebook, Github, Instagram } from "./Logo";
 
-import Link from "../Link";
+import Link from "./Link";
 
 export default function Sosmed(): React.JSX.Element {
   return (
