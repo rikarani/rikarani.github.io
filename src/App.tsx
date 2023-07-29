@@ -19,9 +19,9 @@ function App(): React.JSX.Element {
     },
   });
 
-  const homeTransition = useTransition(lock, {
+  const mainTransition = useTransition(lock, {
     from: { opacity: 0 },
-    enter: { opacity: 1, delay: 400, duration: 700 },
+    enter: { opacity: 1, delay: 200, duration: 500 },
     leave: { opacity: 0 },
     config: {
       easing: easings.easeInOutCubic,
@@ -40,7 +40,7 @@ function App(): React.JSX.Element {
             )
           );
         })}
-        {homeTransition((style, item) => {
+        {mainTransition((style, item) => {
           return (
             !item && (
               <animated.div style={style}>
