@@ -7,5 +7,5 @@ interface LoadingContext {
 
 export const LoadingContext = createContext<LoadingContext>({
   loading: true,
-  setLoading: () => {},
+  setLoading: () => void {},
 });

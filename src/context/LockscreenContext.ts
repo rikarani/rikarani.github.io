@@ -7,5 +7,5 @@ interface LockscreenContext {
 
 export const LockscreenContext = createContext<LockscreenContext>({
   lock: true,
-  setLock: () => {},
+  setLock: () => void {},
 });
