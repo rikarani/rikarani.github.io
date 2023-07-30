@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { LoadingContext, LockscreenContext } from "./context";
+import { LockscreenContext } from "./context";
 import { useTransition, animated, easings } from "@react-spring/web";
 
 import Lockscreen from "./views/Lockscreen";
 import Main from "./views/Main";
 
 function App(): React.JSX.Element {
-  const [loading, setLoading] = useState<boolean>(true);
   const [lock, setLock] = useState<boolean>(true);
 
   const lockscreenTransition = useTransition(lock, {
@@ -28,28 +27,26 @@ function App(): React.JSX.Element {
   });
 
   return (
-    <LoadingContext.Provider value={{ loading, setLoading }}>
-      <LockscreenContext.Provider value={{ lock, setLock }}>
-        {lockscreenTransition((style, item) => {
-          return (
-            item && (
-              <animated.div style={style}>
-                <Lockscreen />
-              </animated.div>
-            )
-          );
-        })}
-        {mainTransition((style, item) => {
-          return (
-            !item && (
-              <animated.div style={style}>
-                <Main />
-              </animated.div>
-            )
-          );
-        })}
-      </LockscreenContext.Provider>
-    </LoadingContext.Provider>
+    <LockscreenContext.Provider value={{ lock, setLock }}>
+      {lockscreenTransition((style, item) => {
+        return (
+          item && (
+            <animated.div style={style}>
+              <Lockscreen />
+            </animated.div>
+          )
+        );
+      })}
+      {mainTransition((style, item) => {
+        return (
+          !item && (
+            <animated.div style={style}>
+              <Main />
+            </animated.div>
+          )
+        );
+      })}
+    </LockscreenContext.Provider>
   );
 }
 
