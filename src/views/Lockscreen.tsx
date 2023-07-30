@@ -22,7 +22,7 @@ function Lockscreen(): React.JSX.Element {
 
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <div className="relative h-full w-full bg-hp bg-cover bg-center before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black/[0.45] before:content-[''] sm:bg-desktop sm:bg-right"></div>;
+      <div className="relative h-full w-full bg-hp bg-cover bg-center before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-black/[0.45] before:content-[''] md:bg-desktop md:bg-right"></div>;
       {isImageReady && quotes && (
         <div onClick={() => setLock(false)} className="absolute bottom-0 left-0 right-0 top-0 px-4 pt-6 sm:pt-8">
           <div className="sm:text-center">
