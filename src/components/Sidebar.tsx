@@ -19,6 +19,8 @@ export default function Sidebar(): React.JSX.Element {
 
   return (
     <>
+      {isOpen && <div className="fixed left-0 top-0 h-full w-full bg-black/50 md:hidden"></div>}
+
       {sidebarTransition((style, item) => {
         return (
           item && (
