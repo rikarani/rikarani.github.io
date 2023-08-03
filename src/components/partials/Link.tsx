@@ -4,11 +4,12 @@ interface LinkProps {
   to: string;
   children: ReactNode;
   openInNewTab?: boolean;
+  className?: string;
 }
 
-function Link({ to, children, openInNewTab = true }: LinkProps): React.JSX.Element {
+function Link({ to, children, openInNewTab = true, className }: LinkProps): React.JSX.Element {
   return (
-    <a href={to} target={openInNewTab ? "_blank" : "_self"} onClick={(e) => e.stopPropagation()}>
+    <a href={to} target={openInNewTab ? "_blank" : "_self"} onClick={(e) => e.stopPropagation()} className={className || ""}>
       {children}
     </a>
   );
