@@ -19,7 +19,7 @@ function App(): React.JSX.Element {
 
   const mainTransition = useTransition(lock, {
     from: { opacity: 0 },
-    enter: { opacity: 1, delay: 300, duration: 700, height: "100%", overflow: "hidden" },
+    enter: { opacity: 1, delay: 200, duration: 700, height: "100%", display: "flex", flexDirection: "column" },
     leave: { opacity: 0 },
     config: {
       easing: easings.easeInOutCubic,
