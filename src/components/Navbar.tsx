@@ -12,15 +12,17 @@ function Navbar(): React.JSX.Element {
     <SidebarContext.Provider value={{ isOpen, setIsOpen }}>
       <Sidebar />
 
-      <nav className="flex h-16 items-center justify-end bg-gradient-to-r from-cyan-300 to-blue-400 px-6">
-        <div onClick={() => setIsOpen(true)}>
-          <Hamburger className="h-6 w-6 hover:cursor-pointer sm:hidden" />
-        </div>
+      <div className="bg-[#151b3d] px-6 py-4">
+        <nav className="flex items-center justify-end xl:mx-auto xl:max-w-4xl">
+          <div className="md:hidden" onClick={() => setIsOpen(true)}>
+            <Hamburger className="h-6 w-6 stroke-slate-200 stroke-2 hover:cursor-pointer" />
+          </div>
 
-        <div className="hidden w-full gap-6 sm:flex sm:max-w-2xl sm:justify-end">
-          <Menu />
-        </div>
-      </nav>
+          <div className="hidden gap-6 md:flex">
+            <Menu />
+          </div>
+        </nav>
+      </div>
     </SidebarContext.Provider>
   );
 }

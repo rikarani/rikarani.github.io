@@ -10,3 +10,9 @@ export interface Quote {
   dateAdded: string;
   dateModified: string;
 }
+
+export interface MenuButton {
+  type?: "button" | "submit" | "reset" | undefined;
+  text: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}

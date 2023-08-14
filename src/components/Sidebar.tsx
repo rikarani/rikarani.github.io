@@ -19,20 +19,20 @@ export default function Sidebar(): React.JSX.Element {
 
   return (
     <>
-      {isOpen && <div className="fixed left-0 top-0 h-full w-full bg-black/50 sm:hidden"></div>}
+      {isOpen && <div className="fixed left-0 top-0 h-full w-full bg-black/50 md:hidden"></div>}
 
       {sidebarTransition((style, item) => {
         return (
           item && (
-            <animated.aside style={style} className="fixed bottom-0 right-0 top-0 z-10 w-3/4 divide-y divide-gray-400 bg-white sm:hidden">
-              <div className="flex h-16 items-center justify-end px-6">
+            <animated.aside style={style} className="fixed bottom-0 right-0 top-0 z-10 w-3/4 divide-y-2 divide-slate-700 bg-slate-900 px-6 py-4 md:hidden">
+              <div className="mb-4 flex items-center justify-end">
                 <div className="hover:cursor-pointer" onClick={() => setIsOpen(false)}>
-                  <XMark className="h-6 w-6" />
+                  <XMark className="h-6 w-6 stroke-slate-200 stroke-2" />
                 </div>
               </div>
 
               <div>
-                <div className="mt-4 flex flex-col gap-4 px-6">
+                <div className="mt-4 flex flex-col gap-4">
                   <Menu />
                 </div>
               </div>
