@@ -16,6 +16,16 @@ export default {
       colors: {
         primary: "#181717", // github
       },
+      keyframes: {
+        floating: {
+          "0%": { transform: "translate(0, 0)" },
+          "50%": { transform: "translate(0, 15px)" },
+          "100%": { transform: "translate(0, -0px)" },
+        },
+      },
+      animation: {
+        floating: "floating 3s infinite ease-in-out",
+      },
     },
   },
   plugins: [],
