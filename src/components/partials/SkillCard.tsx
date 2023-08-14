@@ -35,8 +35,8 @@ export default function SkillCard({ stackName }: SkillCardProps) {
       {dialogTransition((style, item) => {
         return (
           item && (
-            <animated.div style={style} className="fixed inset-0 flex items-center bg-black/50" onClick={() => setIsModalOpen(false)}>
-              <h1>pala bapakkau</h1>
+            <animated.div style={style} className="fixed inset-0 flex items-center bg-black/60" onClick={() => setIsModalOpen(false)}>
+              <h1 className="mx-auto text-5xl font-medium">alamak</h1>
             </animated.div>
           )
         );
