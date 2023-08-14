@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { LockscreenContext } from "./context";
+import { LockscreenContext } from "@/context";
 import { useTransition, animated, easings } from "@react-spring/web";
 
-import Lockscreen from "./views/Lockscreen";
-import Main from "./views/Main";
+import Lockscreen from "@/views/Lockscreen";
+import Main from "@/views/Main";
 
 function App(): React.JSX.Element {
   const [lock, setLock] = useState<boolean>(true);
