@@ -17,7 +17,7 @@ export interface MenuButton {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface SkillCardProps {
+export interface SkillProps {
   stackName: string;
 }
 

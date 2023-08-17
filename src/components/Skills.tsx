@@ -1,4 +1,4 @@
-import SkillCard from "./partials/SkillCard";
+import Skill from "./partials/Skill";
 
 export default function Skills(): React.JSX.Element {
   return (
@@ -7,8 +7,8 @@ export default function Skills(): React.JSX.Element {
       <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, atque.</h6>
 
       <div className="mt-4">
-        <SkillCard stackName="HTML" />
-        <SkillCard stackName="CSS" />
+        <Skill stackName="HTML" />
+        <Skill stackName="CSS" />
       </div>
     </div>
   );

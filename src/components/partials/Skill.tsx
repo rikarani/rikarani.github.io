@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useTransition, animated, easings } from "@react-spring/web";
 import { HTML5Logo, RightArrow, XMark } from "./Logo";
-import type { SkillCardProps } from "@/types";
+import type { SkillProps } from "@/types";
 
 import Link from "./Link";
 
-export default function SkillCard({ stackName }: SkillCardProps) {
+export default function Skill({ stackName }: SkillProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const dialogTransition = useTransition(isModalOpen, {
