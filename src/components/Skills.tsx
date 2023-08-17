@@ -8,6 +8,7 @@ export default function Skills(): React.JSX.Element {
 
       <div className="mt-4">
         <SkillCard stackName="HTML" />
+        <SkillCard stackName="CSS" />
       </div>
     </div>
   );
