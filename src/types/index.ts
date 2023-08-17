@@ -16,3 +16,11 @@ export interface MenuButton {
   text: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface SkillCardProps {
+  stackName: string;
+}
+
+export interface LogoProps {
+  className?: string;
+}
