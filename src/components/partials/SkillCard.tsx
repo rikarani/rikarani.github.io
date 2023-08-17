@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useTransition, animated, easings } from "@react-spring/web";
-import { HTML5Logo, RightArrow } from "./Logo";
+import { HTML5Logo, RightArrow, XMark } from "./Logo";
+import type { SkillCardProps } from "@/types";
 
-interface SkillCardProps {
-  stackName: string;
-}
+import Link from "./Link";
 
 export default function SkillCard({ stackName }: SkillCardProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -23,7 +22,7 @@ export default function SkillCard({ stackName }: SkillCardProps) {
           <HTML5Logo className="h-20 w-20 fill-[#E34F26]" />
           <div>
             <h6 className="mt-0.5 text-xl font-medium">{stackName}</h6>
-            <p>HyperText Markup Language. Dari sinilah semuanya berawal</p>
+            <p>HyperText Markup Language. Dari sinilah semuanya berawal.</p>
           </div>
         </div>
         <div className="mt-2">
@@ -36,7 +35,33 @@ export default function SkillCard({ stackName }: SkillCardProps) {
         return (
           item && (
             <animated.div style={style} className="fixed inset-0 flex items-center bg-black/60" onClick={() => setIsModalOpen(false)}>
-              <h1 className="mx-auto text-5xl font-medium">alamak</h1>
+              <dialog open={item} className="w-64 divide-y divide-slate-300 rounded-md bg-slate-900 px-3 py-2 text-slate-300" onClick={(e) => e.stopPropagation()}>
+                <div className="mb-1 flex items-center justify-between">
+                  <h1 className="text-lg font-semibold">{stackName}</h1>
+                  <div onClick={() => setIsModalOpen(false)}>
+                    <XMark className="h-6 w-6 cursor-pointer stroke-slate-300" />
+                  </div>
+                </div>
+                <div>
+                  <h6 className="mt-1 text-lg font-medium">Sumber Belajar :</h6>
+                  <ol className="list-inside list-['-_'] space-y-0.5 last:mb-1">
+                    <li>
+                      <Link to="/">Web Programming UNPAS</Link>
+                    </li>
+                    <li>
+                      <a href="">W3School</a>
+                    </li>
+                    <li>
+                      <a href="">MDN Docs</a>
+                    </li>
+                  </ol>
+                </div>
+                <div className="flex justify-end">
+                  <button className="mt-2 rounded border border-slate-300 px-2 py-1 text-slate-300" onClick={() => setIsModalOpen(false)}>
+                    Tutup
+                  </button>
+                </div>
+              </dialog>
             </animated.div>
           )
         );
