@@ -1,6 +1,4 @@
-interface LogoProps {
-  className?: string;
-}
+import type { LogoProps } from "@/types";
 
 function Facebook({ className }: LogoProps): React.JSX.Element {
   return (
