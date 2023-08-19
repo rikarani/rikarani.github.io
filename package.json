@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@react-spring/types": "^9.7.2",
     "@react-spring/web": "^9.7.2",
     "animate.css": "^4.1.1",
