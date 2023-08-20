@@ -5,6 +5,10 @@
 @layer base {
   html {
     -webkit-tap-highlight-color: transparent;
+
+    ::-webkit-scrollbar {
+      @apply hidden;
+    }
   }
 }
 
