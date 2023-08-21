@@ -1,4 +1,4 @@
-import { useDate, useTime } from "../../hooks";
+import { useDate, useTime } from "@/hooks";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
 function addZero(time: number): string {
