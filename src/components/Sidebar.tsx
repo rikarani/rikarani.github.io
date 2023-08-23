@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { SidebarContext } from "../context";
+import { SidebarContext } from "@/context";
 import { useTransition, animated, easings } from "@react-spring/web";
-import { XMark } from "./partials/Logo";
+import { XMark } from "./partials/logo";
 
 import Menu from "./Menu";
 
