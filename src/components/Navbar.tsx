@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SidebarContext } from "../context";
-import { Hamburger } from "./partials/Logo";
+import { SidebarContext } from "@/context";
+import { Hamburger } from "./partials/logo";
 
 import Sidebar from "./Sidebar";
 import Menu from "./Menu";

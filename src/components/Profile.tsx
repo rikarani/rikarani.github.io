@@ -1,4 +1,4 @@
-import { Github } from "./partials/Logo";
+import { Github } from "./partials/logo";
 
 import Typewriter, { Options } from "typewriter-effect";
 import Link from "./partials/Link";
@@ -14,7 +14,7 @@ export default function Profile(): React.JSX.Element {
   };
 
   return (
-    <div className="md:flex xl:mx-auto xl:max-w-5xl">
+    <div className="md:flex">
       <div className="divide-y divide-gray-400 md:w-full md:divide-y-0">
         <div>
           <h6 className="text-4xl/8 font-semibold text-slate-300 md:text-5xl">Halo, nama saya</h6>
