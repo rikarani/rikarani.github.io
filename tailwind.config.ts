@@ -8,13 +8,10 @@ export default {
       fontFamily: {
         tulisan: ["'Heebo'", ...fontFamily.sans],
       },
-      backgroundImage: {
-        hp: "url('../../img/mashiro.webp')",
-        desktop: "url('../../img/pagi.webp')",
-        "beams-7": "url('../../img/beams/7.png')",
-      },
       colors: {
-        primary: "#181717", // github
+        primary: "#09090b",
+        secondary: "#fafafa",
+        border: "#1c1c1e",
       },
       keyframes: {
         floating: {
