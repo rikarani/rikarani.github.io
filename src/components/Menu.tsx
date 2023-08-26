@@ -1,7 +1,6 @@
 import { useContext } from "react";
-import { TabContext } from "../context/TabContext";
-import { SidebarContext } from "../context/SidebarContext";
-import type { Tab } from "../types";
+import { TabContext, SidebarContext } from "@/context";
+import type { Tab } from "@/types";
 
 import MenuButton from "./partials/MenuButton";
 
