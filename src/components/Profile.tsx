@@ -1,4 +1,4 @@
-import { Github } from "./partials/logo";
+import { Github } from "./partials/svg";
 
 import Typewriter, { type Options } from "typewriter-effect";
 import Link from "./partials/Link";
@@ -31,8 +31,8 @@ export default function Profile(): React.JSX.Element {
         </div>
 
         <div className="text-lg leading-snug tracking-wider text-gray-400">
-          <h6 className="mt-2.5 text-xl font-semibold">// Kenalan Singkat</h6>
-          <p>Mahasiswa Teknik Informatika di Universitas Tanjungpura Pontianak. Kenal ngoding pas awal masuk kuliah (sekitar Oktober 2021), tapi baru mulai serius ngoding pas Agustus 2022.</p>
+          <h6 className="mt-1 text-xl font-semibold">// Kenalan Singkat</h6>
+          <p>Mahasiswa Teknik Informatika di Universitas Tanjungpura Pontianak. Kenal ngoding pas awal masuk kuliah (sekitar Oktober 2021), tapi baru mulai serius ngoding pas Februari 2023.</p>
           <p className="mt-3">
             Tertarik jadi Front-End Web Developer karna gak sengaja nemu channel{" "}
             <Link to="https://www.youtube.com/@sandhikagalihWPU" className="text-violet-400/70 underline underline-offset-4">
