@@ -1,11 +1,4 @@
-import { ReactNode } from "react";
-
-interface LinkProps {
-  to: string;
-  children: ReactNode;
-  openInNewTab?: boolean;
-  className?: string;
-}
+import type { LinkProps } from "@/types";
 
 function Link({ to, children, openInNewTab = true, className }: LinkProps): React.JSX.Element {
   return (
