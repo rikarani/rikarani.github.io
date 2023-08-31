@@ -1,14 +1,19 @@
 export type Tab = "Profile" | "Skill" | "Project" | "Website Ini?";
 
-export interface Quote {
-  _id: string;
-  content: string;
-  author: string;
-  tags: string[];
-  authorSlug: string;
-  length: number;
-  dateAdded: string;
-  dateModified: string;
+export interface ISkillList {
+  stackname: string;
+  description: string;
+  logo: React.ReactNode;
+  sumberBelajar: {
+    nama: string;
+    link: string;
+  }[];
+  isValid: boolean;
+}
+
+// Props
+export interface LogoProps {
+  className?: string;
 }
 
 export interface MenuButton {
@@ -17,10 +22,22 @@ export interface MenuButton {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface SkillProps {
-  stackName: string;
+export interface SumberBelajarProps {
+  skill: string;
+  children: React.ReactNode;
 }
 
-export interface LogoProps {
+export interface SkillProps {
+  stackname: string;
+  description: string;
+  logo: React.ReactNode;
+}
+
+export interface LinkProps {
+  to: string;
+  children: React.ReactNode;
+  openInNewTab?: boolean;
   className?: string;
 }
+
+// Context
