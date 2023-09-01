@@ -1,7 +1,7 @@
 // Skill
 import HTML from "./Skill/HTML";
 import CSS from "./Skill/CSS";
-import Javascript from "./Skill/JavaScript";
+import Javascript from "./Skill/Javascript";
 import React from "./Skill/React";
 import NextJS from "./Skill/Next";
 import PHP from "./Skill/PHP";
