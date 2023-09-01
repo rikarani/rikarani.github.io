@@ -1,5 +1,5 @@
 import type { ISkillList } from "@/types";
-import { HTML, CSS, JavaScript, React, NextJS as Next, PHP, Laravel, Tailwind } from "@/components/partials/svg";
+import { HTML, CSS, Javascript, React, NextJS as Next, PHP, Laravel, Tailwind, Typescript } from "@/components/partials/svg";
 
 export const SkillList: ISkillList[] = [
   {
@@ -57,7 +57,7 @@ export const SkillList: ISkillList[] = [
   {
     stackname: "Javascript",
     description: "Java pakek script, jadilah Javascript",
-    logo: <JavaScript className="h-14 w-14 fill-javascript opacity-70 md:h-16 md:w-16" />,
+    logo: <Javascript className="h-14 w-14 fill-javascript opacity-70 md:h-16 md:w-16" />,
     sumberBelajar: [
       {
         nama: "Web Programming UNPAS - JS Dasar",
@@ -82,6 +82,7 @@ export const SkillList: ISkillList[] = [
     ],
     isValid: true,
   },
+
   {
     stackname: "React",
     description: "Library buat bikin UI",
@@ -114,6 +115,18 @@ export const SkillList: ISkillList[] = [
       {
         nama: "Tailwind Docs",
         link: "https://tailwindcss.com/docs/installation",
+      },
+    ],
+    isValid: true,
+  },
+  {
+    stackname: "Typescript",
+    description: "Type pakek script, jadilah Typescript",
+    logo: <Typescript className="h-14 w-14 fill-[#3178C6] opacity-70 md:h-16 md:w-16" />,
+    sumberBelajar: [
+      {
+        nama: "gada",
+        link: "goblog",
       },
     ],
     isValid: true,
