@@ -1,43 +1,47 @@
+import { ReactNode, MouseEventHandler } from "react";
+
 export type Tab = "Profile" | "Skill" | "Project" | "Website Ini?";
 
-export interface ISkillList {
+export type ISkillList = {
   stackname: string;
   description: string;
-  logo: React.ReactNode;
+  logo: ReactNode;
   sumberBelajar: {
     nama: string;
     link: string;
   }[];
   isValid: boolean;
-}
+};
 
 // Props
-export interface LogoProps {
+export type LogoProps = {
   className?: string;
-}
+};
 
-export interface MenuButton {
+export type MenuButton = {
   type?: "button" | "submit" | "reset" | undefined;
   text: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+  onClick: MouseEventHandler<HTMLButtonElement>;
+};
 
-export interface SumberBelajarProps {
+export type SumberBelajarProps = {
   skill: string;
-  children: React.ReactNode;
-}
+  children: ReactNode;
+};
 
-export interface SkillProps {
-  stackname: string;
-  description: string;
-  logo: React.ReactNode;
-}
+export type SkillChildrenProps = {
+  children: ReactNode;
+};
 
-export interface LinkProps {
+export type SkillProps = SkillChildrenProps & {
+  onClick: MouseEventHandler<HTMLButtonElement>;
+};
+
+export type LinkProps = {
   to: string;
-  children: React.ReactNode;
+  children: ReactNode;
   openInNewTab?: boolean;
   className?: string;
-}
+};
 
 // Context
