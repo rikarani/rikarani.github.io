@@ -12,17 +12,12 @@ export default function Menu(): React.JSX.Element {
   return (
     <>
       {tabs.map((tab) => {
-        return (
-          <MenuButton
-            key={tab}
-            type="button"
-            onClick={() => {
-              setActiveTab(tab);
-              setIsOpen(false);
-            }}
-            text={tab}
-          />
-        );
+        function handleClick() {
+          setActiveTab(tab);
+          setIsOpen(false);
+        }
+
+        return <MenuButton key={tab} type="button" onClick={handleClick} text={tab} />;
       })}
     </>
   );
