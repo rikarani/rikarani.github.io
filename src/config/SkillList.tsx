@@ -101,7 +101,7 @@ export const SkillList: ISkillList[] = [
         link: "https://react.dev/",
       },
     ],
-    isValid: true,
+    isValid: false,
   },
   {
     stackname: "Tailwind",
@@ -117,7 +117,7 @@ export const SkillList: ISkillList[] = [
         link: "https://tailwindcss.com/docs/installation",
       },
     ],
-    isValid: true,
+    isValid: false,
   },
   {
     stackname: "Typescript",
@@ -129,7 +129,7 @@ export const SkillList: ISkillList[] = [
         link: "goblog",
       },
     ],
-    isValid: true,
+    isValid: false,
   },
   {
     stackname: "Next JS",
