@@ -24,7 +24,7 @@ export default function Sidebar(): React.JSX.Element {
       {sidebarTransition((style, item) => {
         return (
           item && (
-            <animated.aside style={style} className="fixed bottom-0 right-0 top-0 z-20 w-3/4 divide-y divide-border bg-primary px-6 py-4 md:hidden" onClick={() => setIsOpen(false)}>
+            <animated.aside style={style} className="fixed bottom-0 right-0 top-0 z-20 w-3/4 divide-y-2 divide-gray-800 bg-primary px-6 py-4 md:hidden" onClick={() => setIsOpen(false)}>
               <div className="mb-4 flex items-center justify-end">
                 <div className="hover:cursor-pointer" onClick={() => setIsOpen(false)}>
                   <XMark className="h-6 w-6 stroke-gray-300 stroke-2" />
