@@ -29,14 +29,6 @@ export type SumberBelajarProps = {
   children: ReactNode;
 };
 
-export type SkillChildrenProps = {
-  children: ReactNode;
-};
-
-export type SkillProps = SkillChildrenProps & {
-  onClick: MouseEventHandler<HTMLButtonElement>;
-};
-
 export type LinkProps = {
   to: string;
   children: ReactNode;
