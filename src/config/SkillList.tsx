@@ -1,5 +1,5 @@
 import type { ISkillList } from "@/types";
-import { HTML, CSS, Javascript, React, NextJS as Next, PHP, Laravel, Tailwind, Typescript } from "@/components/partials/svg";
+import { HTML, CSS, Javascript, React, NextJS as Next, PHP, Laravel, Tailwind } from "@/components/partials/svg";
 
 export const SkillList: ISkillList[] = [
   {
@@ -82,7 +82,6 @@ export const SkillList: ISkillList[] = [
     ],
     isValid: true,
   },
-
   {
     stackname: "React",
     description: "Library buat bikin UI",
@@ -120,25 +119,21 @@ export const SkillList: ISkillList[] = [
     isValid: false,
   },
   {
-    stackname: "Typescript",
-    description: "Type pakek script, jadilah Typescript",
-    logo: <Typescript className="h-14 w-14 fill-[#3178C6] opacity-70 md:h-16 md:w-16" />,
-    sumberBelajar: [
-      {
-        nama: "gada",
-        link: "goblog",
-      },
-    ],
-    isValid: false,
-  },
-  {
     stackname: "Next JS",
-    description: "Next JS tuh framework buat si React",
+    description: "Frameworknya React",
     logo: <Next className="h-14 w-14 fill-secondary opacity-70 md:h-16 md:w-16" />,
     sumberBelajar: [
       {
-        nama: "Blum ada",
-        link: "goblog",
+        nama: "VIP CODE STUDIO - Pages Router",
+        link: "https://www.youtube.com/playlist?list=PLBxX7gb7NsILoc8Dyp_ISkfPr4O_j80LF",
+      },
+      {
+        nama: "VIP CODE STUDIO - App Router",
+        link: "https://www.youtube.com/playlist?list=PLBxX7gb7NsIIOJSNEkfKa47wWfvEiZSeo",
+      },
+      {
+        nama: "Next JS Docs",
+        link: "https://nextjs.org/docs",
       },
     ],
     isValid: false,
@@ -149,20 +144,32 @@ export const SkillList: ISkillList[] = [
     logo: <PHP className="h-14 w-14 fill-php opacity-70 md:h-16 md:w-16" />,
     sumberBelajar: [
       {
-        nama: "blum ada",
-        link: "goblog",
+        nama: "Web Programming UNPAS - PHP Untuk Pemula",
+        link: "https://www.youtube.com/playlist?list=PLFIM0718LjIUqXfmEIBE3-uzERZPh3vp6",
+      },
+      {
+        nama: "Web Programming UNPAS - OOP pada PHP",
+        link: "https://www.youtube.com/playlist?list=PLFIM0718LjIWvxxll-6wLXrC_16h_Bl_p",
+      },
+      {
+        nama: "Web Programming UNPAS - PHP MVC",
+        link: "https://www.youtube.com/playlist?list=PLFIM0718LjIVEh_d-h5wAjsdv2W4SAtkx",
       },
     ],
     isValid: false,
   },
   {
     stackname: "Laravel",
-    description: "Laravel nih Frameworknya si PHP",
+    description: "Salah satu framework PHP",
     logo: <Laravel className="h-14 w-14 fill-laravel opacity-70 md:h-16 md:w-16" />,
     sumberBelajar: [
       {
-        nama: "blum ada",
-        link: "goblog",
+        nama: "Web Programming UNPAS - Laravel",
+        link: "https://www.youtube.com/playlist?list=PLFIM0718LjIWiihbBIq-SWPU6b6x21Q_2",
+      },
+      {
+        nama: "Laravel Docs",
+        link: "https://laravel.com/docs/10.x",
       },
     ],
     isValid: false,
