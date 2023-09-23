@@ -1,35 +1,24 @@
+import { ReactNode, MouseEventHandler } from "react";
+import { Button } from "@material-tailwind/react";
 import { ArrowRight } from "./svg";
-import type { SkillProps, SkillChildrenProps } from "@/types";
 
-function Logo({ children }: SkillChildrenProps): React.JSX.Element {
-  return <div>{children}</div>;
-}
+type SkillProps = {
+  logo: ReactNode;
+  children: ReactNode;
+  onClick: MouseEventHandler;
+};
 
-function Name({ children }: SkillChildrenProps): React.JSX.Element {
-  return <h6 className="mt-0.5 text-xl font-medium">{children}</h6>;
-}
-
-function Description({ children }: SkillChildrenProps): React.JSX.Element {
-  return <p>{children}</p>;
-}
-
-function Skill({ children, onClick }: SkillProps): React.JSX.Element {
+export default function Skill({ logo, children, onClick }: SkillProps): React.JSX.Element {
   return (
-    <>
-      <div className="gap-2.5 border-b border-t border-gray-700 py-3 md:flex md:flex-col md:justify-between md:border-0">
-        <div className="flex items-center gap-2.5">{children}</div>
-        <div className="mt-2">
-          <button onClick={onClick} className="group flex w-full items-center justify-center gap-2 rounded-full border border-secondary/60 px-2 py-1 hover:bg-secondary/70 hover:text-primary">
-            Lihat Sumber Belajar <ArrowRight className="h-6 w-6 transition-transform duration-300 ease-linear group-hover:translate-x-1" />
-          </button>
-        </div>
+    <div className="border-b border-[#b6bec2] last:border-0 md:border-0 [&>button]:last:mb-0">
+      <div className="flex items-center gap-3">
+        {logo}
+        <div>{children}</div>
       </div>
-    </>
+      <Button onClick={onClick} variant="filled" className="group mb-4 mt-3 flex items-center justify-center gap-2.5 rounded-full border border-gray-500 bg-transparent py-2.5 text-base md:mb-0" fullWidth>
+        Cek Sumber Belajar
+        <ArrowRight className="h-6 w-6 transition-all duration-200 ease-linear group-hover:translate-x-2" />
+      </Button>
+    </div>
   );
 }
-
-Skill.Logo = Logo;
-Skill.Name = Name;
-Skill.Description = Description;
-
-export default Skill;

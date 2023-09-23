@@ -1,4 +1,5 @@
-import { Github } from "./partials/svg";
+import Photo from "/img/tb.jpg";
+import { Avatar, Typography } from "@material-tailwind/react";
 
 import Typewriter, { type Options } from "typewriter-effect";
 import Link from "./partials/Link";
@@ -15,31 +16,38 @@ export default function Profile(): React.JSX.Element {
 
   return (
     <div className="md:flex">
-      <div className="divide-y divide-gray-400 md:w-full md:divide-y-0">
+      <div className="md:w-full">
         <div>
-          <h6 className="text-4xl/8 font-semibold text-secondary/70 md:text-5xl">Halo, nama saya</h6>
-          <h6 className="mt-0.5 text-4xl font-medium text-cyan-300/70 md:text-5xl">Phasya Ananta</h6>
-          <h6 className="text-xl text-secondary/70 md:text-2xl">
+          <div className="text-center md:text-left">
+            <Typography variant="h2" color="gray" className="leading-7 text-gray-300">
+              Halo, nama saya
+            </Typography>
+            <Typography variant="h2" color="light-blue" textGradient className="-mt-2 mb-2 md:-mt-1 md:mb-0">
+              Phasya Ananta
+            </Typography>
+          </div>
+          <div className="mb-2 md:hidden">
+            <Avatar src={Photo} size="xxl" className="mx-auto block" />
+          </div>
+          <h6 className="text-center text-xl text-gray-300 md:text-left md:text-2xl">
             <Typewriter options={options} />
           </h6>
-          <div className="mb-2.5 mt-1.5 max-w-max">
-            <Link to="https://github.com/rikarani" className="group flex max-w-max items-center gap-2 rounded-lg bg-secondary/70 px-3 py-1.5 md:px-4 md:py-2">
-              <Github className="h-7 w-7 fill-primary" />
-              <p className="mt-0.5 text-lg text-primary">Cek Github</p>
-            </Link>
-          </div>
         </div>
 
-        <div className="text-lg leading-snug tracking-wider text-gray-400">
-          <h6 className="mt-1 text-xl font-semibold">// Kenalan Singkat</h6>
-          <p>Mahasiswa Teknik Informatika di Universitas Tanjungpura Pontianak. Kenal ngoding pas awal masuk kuliah (sekitar Oktober 2021), tapi baru mulai serius ngoding pas Februari 2023.</p>
-          <p className="mt-3">
+        <div className="mt-2">
+          <Typography variant="h5" color="gray" className="text-gray-300">
+            // Kenalan Singkat
+          </Typography>
+          <Typography variant="lead" color="gray" className="text-gray-300">
+            Mahasiswa Teknik Informatika di Universitas Tanjungpura Pontianak. Kenal ngoding pas awal masuk kuliah (sekitar Oktober 2021), tapi baru mulai serius ngoding pas Februari 2023.
+          </Typography>
+          <Typography variant="lead" color="gray" className="mt-2 text-gray-300">
             Tertarik jadi Front-End Web Developer karna gak sengaja nemu channel{" "}
-            <Link to="https://www.youtube.com/@sandhikagalihWPU" className="text-violet-400/70 underline underline-offset-4">
+            <Link to="https://www.youtube.com/@sandhikagalihWPU" className="text-cyan-400 underline underline-offset-4">
               WPU
             </Link>
             . Tapi sampe sekarang masih bingung kapan harus pake padding, kapan harus pake margin.
-          </p>
+          </Typography>
         </div>
       </div>
       <div className="hidden animate-floating items-center md:flex">

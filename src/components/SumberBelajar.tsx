@@ -1,41 +1,24 @@
-import { useContext, Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { DialogContext } from "@/context/DialogContext";
-import type { SumberBelajarProps } from "@/types";
+import { useContext } from "react";
+import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@material-tailwind/react";
+import { DialogContext } from "@/context";
 
-export default function SumberBelajar({ skill, children }: SumberBelajarProps): React.JSX.Element {
-  const { isOpen, setIsOpen } = useContext(DialogContext);
+type Props = {
+  skill: string;
+  children: React.ReactNode;
+};
+
+export default function SumberBelajar({ skill, children }: Props): React.JSX.Element {
+  const { dialogOpen, setDialogOpen } = useContext(DialogContext);
 
   return (
-    <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" onClose={() => setIsOpen(false)}>
-        <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
-        </Transition.Child>
-
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
-            <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                  {skill}
-                </Dialog.Title>
-                <div className="mt-2">{children}</div>
-
-                <div className="mt-2 flex justify-end">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    okok wakatta
-                  </button>
-                </div>
-              </Dialog.Panel>
-            </Transition.Child>
-          </div>
-        </div>
-      </Dialog>
-    </Transition>
+    <Dialog open={dialogOpen} handler={() => setDialogOpen(false)} className="divide-y bg-primary">
+      <DialogHeader className="text-gray-300">{skill}</DialogHeader>
+      <div>
+        <DialogBody className="text-gray-300">{children}</DialogBody>
+        <DialogFooter>
+          <Button onClick={() => setDialogOpen(false)}>okok wakatta</Button>
+        </DialogFooter>
+      </div>
+    </Dialog>
   );
 }
