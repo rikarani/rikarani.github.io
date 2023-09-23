@@ -1,90 +1,82 @@
-import { useState, useMemo, Fragment } from "react";
+import { useState, useMemo } from "react";
+import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
 import { SkillList as skills } from "@/config/SkillList";
+import { ArrowUp } from "./partials/svg";
 import { DialogContext } from "@/context";
 
 import Skill from "./partials/Skill";
 import SumberBelajar from "./SumberBelajar";
-import Link from "./partials/Link";
-import { ArrowUp } from "./partials/svg";
 
 export default function Skills(): React.JSX.Element {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [skill, setSkill] = useState<string>("");
-  const links = useMemo(() => skills.filter(({ stackname }) => stackname === skill), [skill]);
+  const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+  const [accordion, setAccordion] = useState<number>(1);
+  const [activeSkill, setActiveSkill] = useState<string>("");
 
-  const [disclosures, setDisclosures] = useState([
-    {
-      id: "Valid Skill",
-      pemanis: "pick me up, give me hope, let me say one more word",
-      open: true,
-      buttonText: "Rill",
-      panelText: skills.filter(({ isValid }) => isValid),
-    },
-    {
-      id: "Invalid Skill",
-      pemanis: "mungkin suatu hari nanti ini semua bakal pindah ke atas",
-      open: false,
-      buttonText: "Wishlist?",
-      panelText: skills.filter(({ isValid }) => !isValid),
-    },
-  ]);
-
-  const handleClick = (id: string) => {
-    setDisclosures(disclosures.map((d) => (d.id === id ? { ...d, open: !d.open } : { ...d, open: false })));
-  };
+  const validSkills = skills.filter(({ isValid }) => isValid);
+  const wishlist = skills.filter(({ isValid }) => !isValid);
+  const links = useMemo(() => skills.filter(({ stackname }) => stackname === activeSkill), [activeSkill])[0]?.sumberBelajar;
 
   return (
-    <div className="text-slate-300">
+    <div className="text-gray-300">
       <h6 className="text-4xl font-semibold">Skills</h6>
       <h6>ama sumber belajarnya juga</h6>
 
       <div className="mt-4">
-        <DialogContext.Provider value={{ isOpen, setIsOpen }}>
-          {disclosures.map(({ id, pemanis, open, buttonText, panelText }) => {
-            return (
-              <Fragment key={id}>
-                <button className={`flex w-full items-center justify-between text-secondary ${id === "Invalid Skill" ? "mt-2" : undefined}`} onClick={() => handleClick(id)}>
-                  <p className="text-lg font-medium">{buttonText}</p>
-                  <ArrowUp className={`h-6 w-6 transition-all duration-300 ease-in-out ${open ? "rotate-180" : undefined}`} />
-                </button>
-                {open && (
-                  <div>
-                    <p className="mb-1">{pemanis}</p>
-                    {panelText.map(({ stackname, description, logo }) => {
-                      function handleClick() {
-                        setIsOpen(true);
-                        setSkill(stackname);
-                      }
+        <Accordion open={accordion === 1} icon={<ArrowUp className={`h-6 w-6 stroke-gray-300 transition-all duration-150 ease-linear ${accordion === 1 ? "rotate-180" : undefined}`} />}>
+          <AccordionHeader onClick={() => setAccordion((prev) => (prev === 1 ? 0 : 1))} className="text-gray-300 hover:text-gray-300">
+            Benar
+          </AccordionHeader>
+          <AccordionBody className="flex flex-col gap-4 text-gray-300 md:grid md:grid-cols-3 md:gap-6">
+            {validSkills.map(({ logo, stackname, description }) => {
+              function handleClick() {
+                setActiveSkill(stackname);
+                setDialogOpen(true);
+              }
 
-                      return (
-                        <Skill key={stackname} onClick={handleClick}>
-                          <Skill.Logo>{logo}</Skill.Logo>
-                          <div>
-                            <Skill.Name>{stackname}</Skill.Name>
-                            <Skill.Description>{description}</Skill.Description>
-                          </div>
-                        </Skill>
-                      );
-                    })}
-                  </div>
-                )}
-              </Fragment>
-            );
-          })}
+              return (
+                <Skill key={stackname} logo={logo} onClick={handleClick}>
+                  <h3 className="text-lg font-semibold">{stackname}</h3>
+                  <h5 className="text-lg">{description}</h5>
+                </Skill>
+              );
+            })}
+          </AccordionBody>
+        </Accordion>
+        <Accordion open={accordion === 2} icon={<ArrowUp className={`h-6 w-6 stroke-gray-300 transition-all duration-150 ease-linear ${accordion === 2 ? "rotate-180" : undefined}`} />}>
+          <AccordionHeader onClick={() => setAccordion((prev) => (prev === 2 ? 0 : 2))} className="text-gray-300 hover:text-gray-300">
+            Wishlist
+          </AccordionHeader>
+          <AccordionBody className="flex flex-col gap-4 text-gray-300 md:grid md:grid-cols-3 md:gap-x-6 md:gap-y-8">
+            {wishlist.map(({ logo, stackname, description }) => {
+              function handleClick() {
+                setActiveSkill(stackname);
+                setDialogOpen(true);
+              }
 
-          <SumberBelajar skill={skill}>
-            <ol className="list-inside list-['-_'] space-y-1">
-              {links[0]?.sumberBelajar.map(({ link, nama }) => {
-                return (
-                  <li key={nama}>
-                    <Link to={link}>{nama}</Link>
-                  </li>
-                );
-              })}
-            </ol>
-          </SumberBelajar>
-        </DialogContext.Provider>
+              return (
+                <Skill key={stackname} logo={logo} onClick={handleClick}>
+                  <h3 className="text-lg font-semibold">{stackname}</h3>
+                  <h5 className="text-lg">{description}</h5>
+                </Skill>
+              );
+            })}
+          </AccordionBody>
+        </Accordion>
       </div>
+
+      <DialogContext.Provider value={{ dialogOpen, setDialogOpen }}>
+        <SumberBelajar skill={activeSkill}>
+          <ol className="list-inside list-decimal space-y-1">
+            {links?.map(({ nama, link }) => {
+              return (
+                <li key={nama}>
+                  <a href={link}>{nama}</a>
+                </li>
+              );
+            })}
+          </ol>
+        </SumberBelajar>
+      </DialogContext.Provider>
     </div>
   );
 }
