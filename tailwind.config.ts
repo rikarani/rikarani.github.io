@@ -29,6 +29,8 @@ export default {
         tailwind: "#06B6D4",
         php: "#777BB4",
         laravel: "#FF2D20",
+        yt: "#FF0000",
+        discord: "#5865F2",
       },
       keyframes: {
         "accordion-down": {
