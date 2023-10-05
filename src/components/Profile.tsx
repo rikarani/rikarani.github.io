@@ -1,12 +1,10 @@
-import Photo from "/img/tb.jpg";
-import { Avatar, Typography } from "@material-tailwind/react";
-
+import { Github, Discord, Youtube } from "./partials/svg";
 import Typewriter, { type Options } from "typewriter-effect";
 import Link from "./partials/Link";
 
 export default function Profile(): React.JSX.Element {
   const strings: string[] = ["Mahasiswa", "Pengangguran", "Beban Keluarga", "Front-End Web Developer Wannabe"];
-  const options: Partial<Options> = {
+  const options: Options = {
     autoStart: true,
     loop: true,
     delay: 80,
@@ -15,43 +13,51 @@ export default function Profile(): React.JSX.Element {
   };
 
   return (
-    <div className="md:flex">
-      <div className="md:w-full">
-        <div>
-          <div className="text-center md:text-left">
-            <Typography variant="h2" color="gray" className="leading-7 text-gray-300">
-              Halo, nama saya
-            </Typography>
-            <Typography variant="h2" color="light-blue" textGradient className="-mt-2 mb-2 md:-mt-1 md:mb-0">
-              Phasya Ananta
-            </Typography>
-          </div>
-          <div className="mb-2 md:hidden">
-            <Avatar src={Photo} size="xxl" className="mx-auto block" />
-          </div>
-          <h6 className="text-center text-xl text-gray-300 md:text-left md:text-2xl">
+    <div>
+      <div className="md:flex">
+        <div className="w-full">
+          <h1 className="text-3xl font-medium text-gray-300 lg:text-4xl">Halo, Nama Saya</h1>
+          <h2 className="-ml-0.5 bg-gradient-to-r from-sky-500 to-sky-300 bg-clip-text text-4xl font-semibold text-transparent lg:text-5xl">Phasya Ananta</h2>
+          <div className="mt-1 text-xl font-medium text-gray-300 md:text-2xl">
             <Typewriter options={options} />
-          </h6>
+          </div>
+
+          <div className="mt-4 flex gap-4 [&>div:hover]:cursor-pointer">
+            <div>
+              <Link to="http://github.com/rikarani">
+                <Github className="h-9 w-9 fill-gray-300 hover:fill-white" />
+              </Link>
+            </div>
+            <div>
+              <Link to="https://www.youtube.com/@rikaraniii">
+                <Youtube className="h-9 w-9 fill-gray-300 hover:fill-yt" />
+              </Link>
+            </div>
+            <div>
+              <Link to="https://discord.gg/9mzkkgbqPu">
+                <Discord className="h-9 w-9 fill-gray-300 hover:fill-discord" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-4 text-gray-300">
+            <h6 className="text-xl font-semibold lg:text-2xl">// Kenalan Singkat</h6>
+            <div className="pr-3 text-lg font-medium leading-7 lg:text-xl">
+              <p>Mahasiswa Teknik Informatika di Universitas Tanjungpura Pontianak. Kenal ngoding pas awal masuk kuliah (sekitar Oktober 2021), tapi baru mulai serius ngoding pas Februari 2023.</p>
+              <p className="mt-2">
+                Tertarik jadi Front-End Web Developer karna gak sengaja nemu channel{" "}
+                <Link to="https://www.youtube.com/@sandhikagalihWPU" className="font-medium text-cyan-500 underline underline-offset-4">
+                  WPU
+                </Link>
+                . Tapi sampe sekarang masih bingung kapan harus pake padding, kapan harus pake margin.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-2">
-          <Typography variant="h5" color="gray" className="text-gray-300">
-            // Kenalan Singkat
-          </Typography>
-          <Typography variant="lead" color="gray" className="text-gray-300">
-            Mahasiswa Teknik Informatika di Universitas Tanjungpura Pontianak. Kenal ngoding pas awal masuk kuliah (sekitar Oktober 2021), tapi baru mulai serius ngoding pas Februari 2023.
-          </Typography>
-          <Typography variant="lead" color="gray" className="mt-2 text-gray-300">
-            Tertarik jadi Front-End Web Developer karna gak sengaja nemu channel{" "}
-            <Link to="https://www.youtube.com/@sandhikagalihWPU" className="text-cyan-400 underline underline-offset-4">
-              WPU
-            </Link>
-            . Tapi sampe sekarang masih bingung kapan harus pake padding, kapan harus pake margin.
-          </Typography>
+        <div className="hidden items-center md:flex">
+          <img src="/img/toples.webp" alt="Placeholder" className="w-full animate-floating" />
         </div>
-      </div>
-      <div className="hidden animate-floating items-center md:flex">
-        <img src="../../img/toples.webp" alt="Placeholder" className="w-full" />
       </div>
     </div>
   );
