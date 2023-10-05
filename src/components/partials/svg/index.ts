@@ -13,6 +13,8 @@ import Typescript from "./Skill/Typescript";
 import Facebook from "./Sosmed/Facebook";
 import Github from "./Sosmed/Github";
 import Instagram from "./Sosmed/Instagram";
+import Discord from "./Sosmed/Discord";
+import Youtube from "./Sosmed/Youtube";
 
 // Random
 import ArrowRight from "./Random/ArrowRight";
@@ -21,5 +23,5 @@ import Hamburger from "./Random/Hamburger";
 import XMark from "./Random/XMark";
 
 export { HTML, CSS, Javascript, React, NextJS, PHP, Laravel, Tailwind, Typescript };
-export { Facebook, Github, Instagram };
+export { Facebook, Github, Instagram, Discord, Youtube };
 export { ArrowRight, Hamburger, XMark, ArrowUp };
