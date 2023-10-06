@@ -1,6 +1,10 @@
-import type { MenuButton } from "@/types";
+export type Props = {
+  type?: "button" | "submit" | "reset" | undefined;
+  text: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+};
 
-export default function MenuButton({ type, onClick, text }: MenuButton): React.JSX.Element {
+export default function MenuButton({ type, onClick, text }: Props): React.JSX.Element {
   return (
     <button
       type={type}
