@@ -1,11 +1,23 @@
-import type { ISkillList } from "@/types";
 import { HTML, CSS, Javascript, React, NextJS as Next, PHP, Laravel, Tailwind } from "@/components/partials/svg";
+
+type Sumber = {
+  nama: string;
+  link: string;
+};
+
+type ISkillList = {
+  stackname: string;
+  description: string;
+  logo: React.ReactNode;
+  sumberBelajar: Sumber[];
+  fav: boolean;
+};
 
 export const SkillList: ISkillList[] = [
   {
     stackname: "HTML",
     description: "awal dari segalanya",
-    logo: <HTML className="h-14 w-14 fill-html opacity-70 md:h-16 md:w-16" />,
+    logo: <HTML className="h-16 w-16 fill-html opacity-80" />,
     sumberBelajar: [
       {
         nama: "Web Programming UNPAS - HTML Dasar",
@@ -24,12 +36,12 @@ export const SkillList: ISkillList[] = [
         link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
       },
     ],
-    isValid: true,
+    fav: true,
   },
   {
     stackname: "CSS",
-    description: "buat ngasih style ke halaman web",
-    logo: <CSS className="h-14 w-14 fill-css opacity-70 md:h-16 md:w-16" />,
+    description: "ngasih style ke halaman web",
+    logo: <CSS className="h-16 w-16 fill-css" />,
     sumberBelajar: [
       {
         nama: "Web Programming UNPAS - CSS Dasar",
@@ -52,12 +64,12 @@ export const SkillList: ISkillList[] = [
         link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
       },
     ],
-    isValid: true,
+    fav: true,
   },
   {
     stackname: "Javascript",
-    description: "Java pakek script, jadilah Javascript",
-    logo: <Javascript className="h-14 w-14 fill-javascript opacity-70 md:h-16 md:w-16" />,
+    description: "Java pakek script",
+    logo: <Javascript className="h-16 w-16 fill-javascript" />,
     sumberBelajar: [
       {
         nama: "Web Programming UNPAS - JS Dasar",
@@ -80,12 +92,12 @@ export const SkillList: ISkillList[] = [
         link: "https://developer.mozilla.org/en-US/docs/Web/Javascript",
       },
     ],
-    isValid: true,
+    fav: true,
   },
   {
     stackname: "React",
     description: "Library buat bikin UI",
-    logo: <React className="h-14 w-14 animate-rotate fill-react opacity-70 md:h-16 md:w-16" />,
+    logo: <React className="h-16 w-16 animate-rotate fill-react" />,
     sumberBelajar: [
       {
         nama: "Web Programming UNPAS",
@@ -100,12 +112,12 @@ export const SkillList: ISkillList[] = [
         link: "https://react.dev/",
       },
     ],
-    isValid: false,
+    fav: false,
   },
   {
     stackname: "Tailwind",
     description: "Ekor Angin",
-    logo: <Tailwind className="h-14 w-14 fill-tailwind opacity-70 md:h-16 md:w-16" />,
+    logo: <Tailwind className="h-16 w-16 fill-tailwind" />,
     sumberBelajar: [
       {
         nama: "Web Programming UNPAS",
@@ -116,12 +128,12 @@ export const SkillList: ISkillList[] = [
         link: "https://tailwindcss.com/docs/installation",
       },
     ],
-    isValid: false,
+    fav: false,
   },
   {
     stackname: "Next JS",
     description: "Frameworknya React",
-    logo: <Next className="h-14 w-14 fill-secondary opacity-70 md:h-16 md:w-16" />,
+    logo: <Next className="h-16 w-16 fill-secondary" />,
     sumberBelajar: [
       {
         nama: "VIP CODE STUDIO - Pages Router",
@@ -136,12 +148,12 @@ export const SkillList: ISkillList[] = [
         link: "https://nextjs.org/docs",
       },
     ],
-    isValid: false,
+    fav: false,
   },
   {
     stackname: "PHP",
     description: "Pemberi Harapan Palsu",
-    logo: <PHP className="h-14 w-14 fill-php opacity-70 md:h-16 md:w-16" />,
+    logo: <PHP className="h-16 w-16 fill-php" />,
     sumberBelajar: [
       {
         nama: "Web Programming UNPAS - PHP Untuk Pemula",
@@ -156,12 +168,12 @@ export const SkillList: ISkillList[] = [
         link: "https://www.youtube.com/playlist?list=PLFIM0718LjIVEh_d-h5wAjsdv2W4SAtkx",
       },
     ],
-    isValid: false,
+    fav: false,
   },
   {
     stackname: "Laravel",
     description: "Salah satu framework PHP",
-    logo: <Laravel className="h-14 w-14 fill-laravel opacity-70 md:h-16 md:w-16" />,
+    logo: <Laravel className="h-16 w-16 fill-laravel" />,
     sumberBelajar: [
       {
         nama: "Web Programming UNPAS - Laravel",
@@ -172,6 +184,6 @@ export const SkillList: ISkillList[] = [
         link: "https://laravel.com/docs/10.x",
       },
     ],
-    isValid: false,
+    fav: false,
   },
 ];
