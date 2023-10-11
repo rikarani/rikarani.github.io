@@ -1,11 +1,11 @@
 import { createContext, SetStateAction, Dispatch } from "react";
 
 type DialogContext = {
-  dialogOpen: boolean;
-  setDialogOpen: Dispatch<SetStateAction<boolean>>;
+  isDialogOpen: boolean;
+  setIsDialogOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 export const DialogContext = createContext<DialogContext>({
-  dialogOpen: false,
-  setDialogOpen: () => void {},
+  isDialogOpen: false,
+  setIsDialogOpen: () => void {},
 });
