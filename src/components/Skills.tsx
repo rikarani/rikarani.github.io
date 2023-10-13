@@ -1,18 +1,19 @@
-import { Fragment, useState } from "react";
-import { SkillList as skill } from "@/config/SkillList";
-import { DialogContext } from "@/context";
+import { useState, useMemo } from "react";
+import { SkillList as skills } from "@/config/SkillList";
 
-import { Transition, Dialog } from "@headlessui/react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import TheDialog from "./TheDialog";
 import Skill from "./partials/Skill";
 
 export default function Skills(): React.JSX.Element {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
-  const fav = skill.filter(({ fav }) => fav);
-  const notFav = skill.filter(({ fav }) => !fav);
+  const [selectedSkill, setSelectedSkill] = useState<string>("");
+  const links = useMemo(() => skills.filter(({ stackname }) => stackname === selectedSkill), [selectedSkill]);
+  const fav = skills.filter(({ fav }) => fav);
+  const notFav = skills.filter(({ fav }) => !fav);
 
   return (
-    <DialogContext.Provider value={{ isDialogOpen, setIsDialogOpen }}>
+    <>
       <div className="text-gray-300">
         <h1 className="text-3xl font-medium lg:text-4xl">Skills</h1>
         <h6 className="bg-gradient-to-r from-sky-500 to-sky-300 bg-clip-text text-2xl font-semibold text-transparent">Dan Sumber Belajarnya</h6>
@@ -25,8 +26,13 @@ export default function Skills(): React.JSX.Element {
             <AccordionContent>
               <Skill.Wrapper>
                 {fav.map(({ logo, stackname, description }) => {
+                  const handler = () => {
+                    setIsDialogOpen(true);
+                    setSelectedSkill(stackname);
+                  };
+
                   return (
-                    <Skill.Item key={stackname} logo={logo}>
+                    <Skill.Item key={stackname} logo={logo} onClick={handler}>
                       <h6 className="text-xl font-semibold">{stackname}</h6>
                       <p className="text-base font-medium">{description}</p>
                     </Skill.Item>
@@ -40,8 +46,13 @@ export default function Skills(): React.JSX.Element {
             <AccordionContent>
               <Skill.Wrapper>
                 {notFav.map(({ logo, stackname, description }) => {
+                  const handler = () => {
+                    setIsDialogOpen(true);
+                    setSelectedSkill(stackname);
+                  };
+
                   return (
-                    <Skill.Item key={stackname} logo={logo}>
+                    <Skill.Item key={stackname} logo={logo} onClick={handler}>
                       <h6 className="text-xl font-semibold">{stackname}</h6>
                       <p className="text-base font-medium">{description}</p>
                     </Skill.Item>
@@ -52,39 +63,20 @@ export default function Skills(): React.JSX.Element {
           </AccordionItem>
         </Accordion>
 
-        <Transition appear show={isDialogOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={() => setIsDialogOpen(false)}>
-            <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
-              <div className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
-
-            <div className="fixed inset-0 overflow-y-auto">
-              <div className="flex min-h-full items-center justify-center p-4 text-center">
-                <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
-                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                      Payment successful
-                    </Dialog.Title>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">Your payment has been successfully submitted. We’ve sent you an email with all of the details of your order.</p>
-                    </div>
-
-                    <div className="mt-4">
-                      <button
-                        type="button"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                        onClick={() => setIsDialogOpen(false)}
-                      >
-                        Got it, thanks!
-                      </button>
-                    </div>
-                  </Dialog.Panel>
-                </Transition.Child>
-              </div>
-            </div>
-          </Dialog>
-        </Transition>
+        <TheDialog stackname={selectedSkill} isDialogOpen={isDialogOpen} onClick={() => setIsDialogOpen(false)}>
+          <ul className="list-inside list-['-_'] space-y-1.5">
+            {links[0]?.sumberBelajar.map(({ nama, link }) => {
+              return (
+                <li key={link}>
+                  <a href={link} className="font-medium text-gray-300" target="_blank">
+                    {nama}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </TheDialog>
       </div>
-    </DialogContext.Provider>
+    </>
   );
 }
