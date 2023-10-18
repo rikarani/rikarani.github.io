@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { SkillList as skills } from "@/config/SkillList";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Header from "./Header";
 import TheDialog from "./TheDialog";
 import Skill from "./partials/Skill";
 
@@ -14,18 +15,15 @@ export default function Skills(): React.JSX.Element {
 
   return (
     <>
-      <div className="text-gray-300">
-        <h1 className="text-3xl font-medium lg:text-4xl">Skills</h1>
-        <h6 className="bg-gradient-to-r from-sky-500 to-sky-300 bg-clip-text text-2xl font-semibold text-transparent">Dan Sumber Belajarnya</h6>
-      </div>
+      <Header section="Skills" tagline="Dan Sumber Belajarnya" />
 
       <div className="text-gray-300">
         <Accordion type="single" defaultValue="fav" collapsible>
-          <AccordionItem value="fav">
-            <AccordionTrigger className="border-b border-gray-300 stroke-gray-300 text-xl font-semibold hover:no-underline">Stuck Kesayangan</AccordionTrigger>
+          <AccordionItem value="wishlist">
+            <AccordionTrigger className="border-b border-gray-300 stroke-gray-300 text-xl font-semibold hover:no-underline">Wishlist Stuck</AccordionTrigger>
             <AccordionContent>
               <Skill.Wrapper>
-                {fav.map(({ logo, stackname, description }) => {
+                {notFav.map(({ logo, stackname, description }) => {
                   const handler = () => {
                     setIsDialogOpen(true);
                     setSelectedSkill(stackname);
@@ -41,11 +39,11 @@ export default function Skills(): React.JSX.Element {
               </Skill.Wrapper>
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="wishlist">
-            <AccordionTrigger className="border-b border-gray-300 stroke-gray-300 text-xl font-semibold hover:no-underline">Wishlist Stuck</AccordionTrigger>
+          <AccordionItem value="fav">
+            <AccordionTrigger className="border-b border-gray-300 stroke-gray-300 text-xl font-semibold hover:no-underline">Stuck Kesayangan</AccordionTrigger>
             <AccordionContent>
               <Skill.Wrapper>
-                {notFav.map(({ logo, stackname, description }) => {
+                {fav.map(({ logo, stackname, description }) => {
                   const handler = () => {
                     setIsDialogOpen(true);
                     setSelectedSkill(stackname);

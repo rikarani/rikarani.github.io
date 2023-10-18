@@ -7,10 +7,8 @@ type Props = {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-type WrapperProps = Pick<Props, "children">;
-
-function Wrapper({ children }: WrapperProps): React.JSX.Element {
-  return <div className="divide-y divide-gray-300 border-gray-300 md:grid md:grid-cols-2 md:gap-x-6 md:divide-y-0 lg:grid-cols-3">{children}</div>;
+function Wrapper({ children }: Pick<Props, "children">): React.JSX.Element {
+  return <div className="divide-y divide-gray-300 border-gray-300 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-3 md:divide-y-0 lg:grid-cols-3">{children}</div>;
 }
 
 function Skill({ logo, children, onClick }: Props): React.JSX.Element {
