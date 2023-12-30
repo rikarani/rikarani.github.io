@@ -17,7 +17,7 @@ export default function Menu(): React.JSX.Element {
           setIsOpen(false);
         }
 
-        return <MenuButton key={tab} type="button" onClick={handleClick} text={tab} />;
+        return <MenuButton key={tab} onClick={handleClick} text={tab} />;
       })}
     </>
   );
