@@ -14,11 +14,11 @@ function Navbar(): React.JSX.Element {
 
       <div className="sticky top-0 z-10 bg-primary/40 p-4 backdrop-blur-xl">
         <nav className="flex items-center justify-end xl:mx-auto xl:max-w-5xl">
-          <div className="md:hidden" onClick={() => setIsOpen(true)}>
+          <div className="sm:hidden" onClick={() => setIsOpen(true)}>
             <Hamburger className="h-6 w-6 stroke-gray-300 stroke-2 hover:cursor-pointer" />
           </div>
 
-          <div className="hidden gap-6 md:flex">
+          <div className="hidden gap-6 sm:flex">
             <Menu />
           </div>
         </nav>
