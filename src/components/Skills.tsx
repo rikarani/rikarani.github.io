@@ -1,69 +1,37 @@
 import { useState, useMemo } from "react";
 import { SkillList as skills } from "@/config/SkillList";
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import TheDialog from "./TheDialog";
+import Header from "./Header";
+import Dialog from "./Dialog";
 import Skill from "./partials/Skill";
 
 export default function Skills(): React.JSX.Element {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [selectedSkill, setSelectedSkill] = useState<string>("");
   const links = useMemo(() => skills.filter(({ stackname }) => stackname === selectedSkill), [selectedSkill]);
-  const fav = skills.filter(({ fav }) => fav);
-  const notFav = skills.filter(({ fav }) => !fav);
 
   return (
     <>
-      <div className="text-gray-300">
-        <h1 className="text-3xl font-medium lg:text-4xl">Skills</h1>
-        <h6 className="bg-gradient-to-r from-sky-500 to-sky-300 bg-clip-text text-2xl font-semibold text-transparent">Dan Sumber Belajarnya</h6>
-      </div>
+      <Header section="Skills" tagline="Dan Sumber Belajarnya" />
 
       <div className="text-gray-300">
-        <Accordion type="single" defaultValue="fav" collapsible>
-          <AccordionItem value="fav">
-            <AccordionTrigger className="border-b border-gray-300 stroke-gray-300 text-xl font-semibold hover:no-underline">Stuck Kesayangan</AccordionTrigger>
-            <AccordionContent>
-              <Skill.Wrapper>
-                {fav.map(({ logo, stackname, description }) => {
-                  const handler = () => {
-                    setIsDialogOpen(true);
-                    setSelectedSkill(stackname);
-                  };
+        <Skill.Wrapper>
+          {skills.map(({ logo, stackname, description }) => {
+            function handler() {
+              setIsDialogOpen(true);
+              setSelectedSkill(stackname);
+            }
 
-                  return (
-                    <Skill.Item key={stackname} logo={logo} onClick={handler}>
-                      <h6 className="text-xl font-semibold">{stackname}</h6>
-                      <p className="text-base font-medium">{description}</p>
-                    </Skill.Item>
-                  );
-                })}
-              </Skill.Wrapper>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="wishlist">
-            <AccordionTrigger className="border-b border-gray-300 stroke-gray-300 text-xl font-semibold hover:no-underline">Wishlist Stuck</AccordionTrigger>
-            <AccordionContent>
-              <Skill.Wrapper>
-                {notFav.map(({ logo, stackname, description }) => {
-                  const handler = () => {
-                    setIsDialogOpen(true);
-                    setSelectedSkill(stackname);
-                  };
+            return (
+              <Skill.Item key={stackname} logo={logo} onClick={handler}>
+                <h6 className="text-xl font-semibold">{stackname}</h6>
+                <p className="text-base font-medium">{description}</p>
+              </Skill.Item>
+            );
+          })}
+        </Skill.Wrapper>
 
-                  return (
-                    <Skill.Item key={stackname} logo={logo} onClick={handler}>
-                      <h6 className="text-xl font-semibold">{stackname}</h6>
-                      <p className="text-base font-medium">{description}</p>
-                    </Skill.Item>
-                  );
-                })}
-              </Skill.Wrapper>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-
-        <TheDialog stackname={selectedSkill} isDialogOpen={isDialogOpen} onClick={() => setIsDialogOpen(false)}>
+        <Dialog stackname={selectedSkill} isDialogOpen={isDialogOpen} onClick={() => setIsDialogOpen(false)}>
           <ul className="list-inside list-['-_'] space-y-1.5">
             {links[0]?.sumberBelajar.map(({ nama, link }) => {
               return (
@@ -75,7 +43,7 @@ export default function Skills(): React.JSX.Element {
               );
             })}
           </ul>
-        </TheDialog>
+        </Dialog>
       </div>
     </>
   );

@@ -1,6 +1,5 @@
 // Skill
 import HTML from "./Skill/HTML";
-import CSS from "./Skill/CSS";
 import Javascript from "./Skill/Javascript";
 import React from "./Skill/React";
 import NextJS from "./Skill/Next";
@@ -22,6 +21,6 @@ import ArrowUp from "./Random/ArrowUp";
 import Hamburger from "./Random/Hamburger";
 import XMark from "./Random/XMark";
 
-export { HTML, CSS, Javascript, React, NextJS, PHP, Laravel, Tailwind, Typescript };
+export { HTML, Javascript, React, NextJS, PHP, Laravel, Tailwind, Typescript };
 export { Facebook, Github, Instagram, Discord, Youtube };
 export { ArrowRight, Hamburger, XMark, ArrowUp };
