@@ -40,7 +40,7 @@ export default function Profile(): React.JSX.Element {
             </div>
           </div>
 
-          <div className="mt-4 text-gray-300">
+          <div className="mt-4 text-balance text-gray-300">
             <h6 className="text-xl font-semibold lg:text-2xl">--- Kenalan Singkat</h6>
             <div className="pr-3 text-lg font-medium leading-7 lg:text-xl lg:font-normal">
               <p>Mahasiswa Teknik Informatika di Universitas Tanjungpura Pontianak. Kenal ngoding pas awal masuk kuliah (sekitar Oktober 2021), tapi baru mulai serius ngoding pas Februari 2023.</p>
@@ -55,9 +55,13 @@ export default function Profile(): React.JSX.Element {
           </div>
         </div>
 
-        <div className="hidden items-center md:flex">
+        {/* <div className="relative hidden items-center md:flex">
+          <span className="after:absolute after:top-0 after:h-2 after:w-1/2 after:bg-red-500 after:mix-blend-color-dodge"></span>
+          <span className="after:absolute after:top-0 after:h-2 after:w-1/2 after:origin-top-left after:rotate-90 after:bg-blue-500 after:mix-blend-color-dodge"></span>
+          <span></span>
+          <span></span>
           <img src="/img/toples.webp" alt="Placeholder" className="w-full animate-floating" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
